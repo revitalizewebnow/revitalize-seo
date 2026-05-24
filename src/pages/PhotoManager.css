@@ -296,3 +296,97 @@
   transition: all 0.15s;
 }
 .btn-next:hover { background: var(--accent-dim); }
+
+/* ── New additions ── */
+.form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.brand-note-bar {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--accent-bg); border: 1px solid rgba(200,245,90,0.2);
+  border-radius: var(--radius); padding: 10px 14px;
+  font-size: 12px; color: var(--text-muted); line-height: 1.5;
+}
+.brand-note-bar svg { color: var(--accent); flex-shrink: 0; }
+.brand-note-bar strong { color: var(--accent); margin-right: 4px; }
+
+.global-search-section { display: flex; flex-direction: column; gap: 10px; }
+.btn-global-search {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--text-muted); padding: 11px 18px; border-radius: var(--radius);
+  font-size: 13px; transition: all 0.12s; width: fit-content;
+}
+.btn-global-search:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+
+/* Image search panel */
+.image-search-panel {
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 16px; display: flex;
+  flex-direction: column; gap: 12px;
+}
+.isp-header { font-size: 12px; font-family: var(--font-mono); color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.isp-search-row { display: flex; gap: 8px; }
+.isp-input {
+  flex: 1; background: var(--surface); border: 1px solid var(--border);
+  color: var(--text); padding: 9px 12px; border-radius: var(--radius);
+  font-size: 13px; outline: none; transition: border-color 0.15s;
+}
+.isp-input:focus { border-color: var(--accent); }
+.isp-input::placeholder { color: var(--text-dim); }
+.isp-search-btn {
+  background: var(--accent); border: none; color: #000;
+  width: 38px; border-radius: var(--radius); display: flex;
+  align-items: center; justify-content: center; transition: all 0.12s;
+  flex-shrink: 0;
+}
+.isp-search-btn:hover:not(:disabled) { background: var(--accent-dim); }
+.isp-search-btn:disabled { opacity: 0.5; }
+
+.source-note { font-size: 11px; color: var(--text-dim); }
+.source-note a { color: var(--accent-dim); text-decoration: underline; }
+
+.isp-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+.isp-thumb {
+  position: relative; border-radius: 6px; overflow: hidden;
+  cursor: pointer; border: 2px solid transparent; transition: all 0.12s;
+  aspect-ratio: 4/3;
+}
+.isp-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.isp-thumb:hover { border-color: var(--accent); }
+.isp-thumb--selected { border-color: var(--accent); }
+.isp-selected-overlay {
+  position: absolute; inset: 0; background: rgba(200,245,90,0.3);
+  display: flex; align-items: center; justify-content: center; color: #000;
+}
+
+/* AI query chips */
+.ai-query-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ai-chips-label { font-size: 11px; color: var(--accent); display: flex; align-items: center; gap: 4px; }
+.ai-chip {
+  background: var(--surface); border: 1px solid var(--border); color: var(--text-muted);
+  padding: 4px 10px; border-radius: 20px; font-size: 11px; font-family: var(--font-mono);
+  transition: all 0.12s;
+}
+.ai-chip:hover { color: var(--accent); border-color: var(--accent); background: var(--accent-bg); }
+
+/* Photo card additions */
+.field-label-row { display: flex; align-items: center; justify-content: space-between; }
+.btn-search-toggle {
+  display: flex; align-items: center; gap: 4px;
+  background: none; border: 1px solid var(--border); color: var(--text-muted);
+  padding: 4px 10px; border-radius: 20px; font-size: 11px; transition: all 0.12s;
+}
+.btn-search-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+.ai-fill-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--accent-bg); border: 1px solid rgba(200,245,90,0.2);
+  color: var(--accent); padding: 2px 8px; border-radius: 20px;
+  font-size: 10px; font-family: var(--font-mono); margin-left: auto; transition: all 0.12s;
+}
+.ai-fill-btn:hover { background: rgba(200,245,90,0.15); }
+
+.ai-suggestions-hint { font-size: 12px; color: var(--accent); margin-top: 4px; }
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
