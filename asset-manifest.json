@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/revitalize-seo/static/css/main.3a1621de.css",
-    "main.js": "/revitalize-seo/static/js/main.3382fb45.js",
+    "main.js": "/revitalize-seo/static/js/main.57ca02cf.js",
     "index.html": "/revitalize-seo/index.html",
     "main.3a1621de.css.map": "/revitalize-seo/static/css/main.3a1621de.css.map",
-    "main.3382fb45.js.map": "/revitalize-seo/static/js/main.3382fb45.js.map"
+    "main.57ca02cf.js.map": "/revitalize-seo/static/js/main.57ca02cf.js.map"
   },
   "entrypoints": [
     "static/css/main.3a1621de.css",
-    "static/js/main.3382fb45.js"
+    "static/js/main.57ca02cf.js"
   ]
 }
