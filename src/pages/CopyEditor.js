@@ -165,7 +165,7 @@ Make queries specific and visual — they should find real, relevant photos.`
           'anthropic-dangerous-direct-browser-access': 'true',
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'claude-sonnet-4-5',
           max_tokens: 4000,
           system: systemPrompts[task],
           messages: [{ role: 'user', content: `BUSINESS PROFILE:\n${profileCtx}\n\nBLOG POST:\n${local.content}` }]
