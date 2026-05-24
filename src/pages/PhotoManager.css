@@ -390,3 +390,45 @@
 
 .spin { animation: spin 1s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Unsplash grid ── */
+.isp-error {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,107,107,0.08); border: 1px solid rgba(255,107,107,0.2);
+  color: var(--error); padding: 8px 12px; border-radius: var(--radius); font-size: 12px;
+}
+
+.isp-credit {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.6));
+  color: #fff; font-size: 10px; padding: 8px 6px 4px;
+  opacity: 0; transition: opacity 0.15s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.isp-thumb:hover .isp-credit { opacity: 1; }
+
+.isp-attribution-note {
+  font-size: 11px; color: var(--text-dim); padding-top: 4px;
+}
+.isp-attribution-note a { color: var(--accent-dim); text-decoration: underline; }
+
+/* ── Live preview ── */
+.photo-live-preview {
+  border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--border); max-height: 200px;
+}
+.photo-live-preview img {
+  width: 100%; height: 200px; object-fit: cover; display: block;
+}
+
+/* ── AI suggestions bar ── */
+.ai-suggestions-bar {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  background: var(--accent-bg); border: 1px solid rgba(200,245,90,0.2);
+  border-radius: var(--radius); padding: 10px 14px; font-size: 12px; color: var(--text-muted);
+}
+.ai-suggestions-bar svg { color: var(--accent); flex-shrink: 0; }
+.ai-suggestion-chip {
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text-dim); padding: 3px 10px; border-radius: 20px;
+  font-size: 11px; font-family: var(--font-mono);
+}

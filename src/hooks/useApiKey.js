@@ -1,18 +1,23 @@
 import React, { createContext, useContext, useState } from 'react';
 
 const ApiKeyContext = createContext(null);
-const STORAGE_KEY = 'rwseo_anthropic_key';
 
 export function ApiKeyProvider({ children }) {
-  const [apiKey, setApiKeyState] = useState(() => localStorage.getItem(STORAGE_KEY) || '');
+  const [apiKey, setApiKeyState] = useState(() => localStorage.getItem('rwseo_anthropic_key') || '');
+  const [unsplashKey, setUnsplashKeyState] = useState(() => localStorage.getItem('rwseo_unsplash_key') || '');
 
   const setApiKey = (key) => {
-    localStorage.setItem(STORAGE_KEY, key);
+    localStorage.setItem('rwseo_anthropic_key', key);
     setApiKeyState(key);
   };
 
+  const setUnsplashKey = (key) => {
+    localStorage.setItem('rwseo_unsplash_key', key);
+    setUnsplashKeyState(key);
+  };
+
   return (
-    <ApiKeyContext.Provider value={{ apiKey, setApiKey }}>
+    <ApiKeyContext.Provider value={{ apiKey, setApiKey, unsplashKey, setUnsplashKey }}>
       {children}
     </ApiKeyContext.Provider>
   );
