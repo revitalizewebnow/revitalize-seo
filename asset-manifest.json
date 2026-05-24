@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/revitalize-seo/static/css/main.25b01e4c.css",
+    "main.js": "/revitalize-seo/static/js/main.9741e841.js",
+    "index.html": "/revitalize-seo/index.html",
+    "main.25b01e4c.css.map": "/revitalize-seo/static/css/main.25b01e4c.css.map",
+    "main.9741e841.js.map": "/revitalize-seo/static/js/main.9741e841.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25b01e4c.css",
+    "static/js/main.9741e841.js"
+  ]
+}
