@@ -1,9 +1,11 @@
-import { useState, useCallback } from 'react';
+import React, { createContext, useContext, useState, useCallback } from 'react';
+
+const BusinessProfileContext = createContext(null);
 
 const STORAGE_KEY = 'rwseo_business_profiles';
 const ACTIVE_KEY = 'rwseo_active_profile';
 
-export function useBusinessProfiles() {
+export function BusinessProfileProvider({ children }) {
   const [profiles, setProfiles] = useState(() => {
     try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { return []; }
   });
@@ -24,18 +26,43 @@ export function useBusinessProfiles() {
 
   const createProfile = useCallback((data) => {
     const profile = { id: Date.now().toString(), ...data, createdAt: new Date().toISOString() };
-    saveProfiles([...profiles, profile]);
+    setProfiles(prev => {
+      const next = [...prev, profile];
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      return next;
+    });
     return profile.id;
-  }, [profiles, saveProfiles]);
+  }, []);
 
   const updateProfile = useCallback((id, data) => {
-    saveProfiles(profiles.map(p => p.id === id ? { ...p, ...data } : p));
-  }, [profiles, saveProfiles]);
+    setProfiles(prev => {
+      const next = prev.map(p => p.id === id ? { ...p, ...data } : p);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      return next;
+    });
+  }, []);
 
   const deleteProfile = useCallback((id) => {
-    saveProfiles(profiles.filter(p => p.id !== id));
+    setProfiles(prev => {
+      const next = prev.filter(p => p.id !== id);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+      return next;
+    });
     if (activeProfileId === id) setActiveProfileId(null);
-  }, [profiles, saveProfiles, activeProfileId, setActiveProfileId]);
+  }, [activeProfileId, setActiveProfileId]);
 
-  return { profiles, activeProfileId, setActiveProfileId, createProfile, updateProfile, deleteProfile };
+  return (
+    <BusinessProfileContext.Provider value={{
+      profiles, activeProfileId, setActiveProfileId,
+      createProfile, updateProfile, deleteProfile
+    }}>
+      {children}
+    </BusinessProfileContext.Provider>
+  );
+}
+
+export function useBusinessProfiles() {
+  const ctx = useContext(BusinessProfileContext);
+  if (!ctx) throw new Error('useBusinessProfiles must be used within BusinessProfileProvider');
+  return ctx;
 }

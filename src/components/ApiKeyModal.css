@@ -1,0 +1,58 @@
+.akm-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.akm-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--accent-dim);
+  text-decoration: underline;
+  transition: color 0.12s;
+}
+.akm-link:hover { color: var(--accent); }
+
+.akm-note {
+  font-size: 11px;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* Reuse login field styles */
+.login-field {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 12px;
+  transition: border-color 0.15s;
+}
+.login-field:focus-within { border-color: var(--accent); }
+
+.login-input {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 14px;
+  padding: 12px 0;
+  outline: none;
+  font-family: var(--font-mono);
+}
+.login-input::placeholder { color: var(--text-dim); font-family: var(--font-body); }
+
+.toggle-show {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  transition: color 0.12s;
+}
+.toggle-show:hover { color: var(--text); }

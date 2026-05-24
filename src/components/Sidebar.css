@@ -218,6 +218,31 @@
 .icon-btn:hover { background: var(--surface2); color: var(--text); }
 .icon-btn--active { color: var(--accent); background: var(--accent-bg); }
 
+.api-key-warning {
+  display: flex; align-items: center; gap: 7px;
+  margin: 6px 8px 0; padding: 8px 10px;
+  background: rgba(255,209,102,0.08); border: 1px solid rgba(255,209,102,0.25);
+  border-radius: 7px; color: var(--warning); font-size: 11.5px; text-align: left;
+  transition: all 0.12s; width: calc(100% - 16px);
+}
+.api-key-warning:hover { background: rgba(255,209,102,0.14); }
+
+.sidebar-bottom {
+  margin-top: auto; padding: 8px 8px 10px;
+  border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 2px;
+}
+
+.sidebar-bottom-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: none; border: none; color: var(--text-dim);
+  padding: 7px 10px; border-radius: 6px; font-size: 12px;
+  transition: all 0.15s; text-align: left; width: 100%;
+}
+.sidebar-bottom-btn:hover { color: var(--text-muted); background: var(--surface2); }
+.sidebar-bottom-btn--logout:hover { color: var(--error); background: rgba(255,107,107,0.05); }
+
+.icon-btn--warn { color: var(--warning) !important; }
+
 .logout-btn-full {
   display: flex;
   align-items: center;
