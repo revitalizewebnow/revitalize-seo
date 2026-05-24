@@ -66,7 +66,7 @@ function AppShell() {
   const activePost = posts.find(p => p.id === activePostId) || null;
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/revitalize-seo">
       <div className="app-shell">
         <Sidebar
           posts={posts}
