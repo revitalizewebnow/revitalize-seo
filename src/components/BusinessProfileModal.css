@@ -51,8 +51,7 @@
 .active-badge { font-size: 10px; font-family: var(--font-mono); color: var(--accent); background: var(--accent-bg); border: 1px solid rgba(200,245,90,0.2); padding: 2px 8px; border-radius: 10px; }
 .pli-edit { background: none; border: 1px solid var(--border); color: var(--text-muted); padding: 5px 12px; border-radius: var(--radius); font-size: 12px; transition: all 0.12s; }
 .pli-edit:hover { color: var(--text); border-color: var(--border-light); }
-.pli-delete { background: none; border: none; color: var(--text-dim); padding: 5px; display: flex; align-items: center; transition: color 0.12s; }
-.pli-delete:hover { color: var(--error); }
+.pli-delete--confirm { color: var(--error) !important; }
 
 .btn-back-list { background: none; border: none; color: var(--text-muted); font-size: 12px; padding: 0; margin-bottom: 4px; transition: color 0.12s; }
 .btn-back-list:hover { color: var(--text); }
