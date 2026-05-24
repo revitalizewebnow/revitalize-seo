@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { PenLine, Image, FileText, LayoutDashboard, Plus, Trash2, ChevronRight, Leaf } from 'lucide-react';
+import { PenLine, Image, FileText, Plus, Trash2, ChevronRight, Leaf, LogOut } from 'lucide-react';
 import './Sidebar.css';
 
 const steps = [
@@ -9,7 +9,7 @@ const steps = [
   { path: '/summary', label: 'Post Summary', icon: FileText, step: 3 },
 ];
 
-export default function Sidebar({ posts, activePostId, setActivePostId, createPost, deletePost }) {
+export default function Sidebar({ posts, activePostId, setActivePostId, createPost, deletePost, onLogout }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
@@ -115,6 +115,10 @@ export default function Sidebar({ posts, activePostId, setActivePostId, createPo
               );
             })}
           </div>
+          <button className="logout-btn-full" onClick={onLogout}>
+            <LogOut size={13} />
+            Sign Out
+          </button>
         </>
       )}
 
@@ -126,6 +130,7 @@ export default function Sidebar({ posts, activePostId, setActivePostId, createPo
               <Icon size={16} />
             </button>
           ))}
+          <button className="icon-btn logout-btn" onClick={onLogout} title="Sign out"><LogOut size={16} /></button>
         </div>
       )}
     </aside>

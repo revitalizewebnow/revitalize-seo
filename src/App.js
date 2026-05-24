@@ -5,6 +5,8 @@ import CopyEditor from './pages/CopyEditor';
 import PhotoManager from './pages/PhotoManager';
 import PostSummary from './pages/PostSummary';
 import Dashboard from './pages/Dashboard';
+import Login from './Login';
+import { useAuth } from './AuthContext';
 import './App.css';
 
 const defaultPost = () => ({
@@ -13,19 +15,17 @@ const defaultPost = () => ({
   status: 'draft',
   createdAt: new Date().toISOString(),
   updatedAt: new Date().toISOString(),
-  // SEO Meta
   keywords: [],
   metaTitle: '',
   metaDescription: '',
-  // Copy
   content: '',
   externalLinks: [],
   internalLinks: [],
-  // Photos
   photos: [],
 });
 
-export default function App() {
+function AppShell() {
+  const { logout } = useAuth();
   const [posts, setPosts] = useState(() => {
     const saved = localStorage.getItem('rwseo_posts');
     return saved ? JSON.parse(saved) : [];
@@ -74,6 +74,7 @@ export default function App() {
           setActivePostId={setActivePostId}
           createPost={createPost}
           deletePost={deletePost}
+          onLogout={logout}
         />
         <main className="app-main">
           {!activePost ? (
@@ -90,4 +91,9 @@ export default function App() {
       </div>
     </BrowserRouter>
   );
+}
+
+export default function App() {
+  const { authed } = useAuth();
+  return authed ? <AppShell /> : <Login />;
 }
